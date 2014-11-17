@@ -1,0 +1,25 @@
+<% if @product_category.errors.blank? %>
+
+	// Fill the right box with first health tip details
+	$('#div_product_category_details').html("<%= escape_javascript(render(:partial=>'show')) %>");
+
+	// Add the newly created item to the list
+  $("#div_product_category_collections").prepend("<div id=\"div_product_category_<%= @product_category.id %>\"><%= escape_javascript(render(:partial => 'item', :locals => { :product_category => @product_category })) %></div>")
+  $("#div_product_category_empty").hide();
+
+  // Close Modal
+  closeModal();
+
+<% else %>
+
+  // Show the new form in the pop up form.
+  heading = "Create Product Category";
+  bodyContent = "<%= escape_javascript(render(:partial=>"form")) %>";
+  showModal(heading, bodyContent);
+  validatedoctorForm();
+
+  // Populate Server Side Errors
+  errorMessages = <%= @product_category.errors.full_messages.to_json.html_safe %>;
+  populateServerSideErrors('product_category', errorMessages);
+
+<% end %>

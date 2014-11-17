@@ -61,5 +61,41 @@ module ConfigCenter
     PRODUCT_MAX_LEN = 128
     PRODUCT_FORMAT_REG_EXP = /\A[a-zA-Z0-9\-]*\z/
   end
+
+    module Defaults
+
+    # the default number of milli seconds for which resource listing pages gets refreshed:
+    REFRESH_PAGE_IN_MILLI_SECONDS = 180000
+
+    # It will list 10 items per page unless user request to load more (this is done by passing 'per_page' in url)
+    ITEMS_PER_LIST = 25
+    # It will override the per_page to 10 (default val - ITEMS_PER_LIST), in case if the user request for more items to load in a single listing page.
+    # i.e if user passes per_page=251 (greater than MAX_ITEMS_PER_LIST), system will ignore it and fall back to default no of items to be listed in a page (ITEMS_PER_LIST)
+    MAX_ITEMS_PER_LIST = 250
+
+    # Default password to be assigned while mocking a user
+    PASSWORD = "Password@1"
+
+    # Other constans should follow here.
+    EXCLUDED_JSON_ATTRIBUTES = []
+
+    ##
+    def self.host
+      case Rails.env
+      when "development"
+        'http://localhost:3000'
+      when "it"
+        'http://it.docdock.qwinixtech.com'
+      when "st"
+        'http://st.docdock.qwinixtech.com'
+      when "uat"
+        'http://uat.docdock.qwinixtech.com'
+      when "production"
+        'http://api.docdock.com'
+      else
+        'http://localhost:3000'
+      end
+    end
+  end
 end
 
