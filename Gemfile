@@ -28,6 +28,7 @@ gem 'spring',        group: :development
 gem 'rspec-rails', '~> 3.0.0'
 gem 'pg'
 gem 'pry-rails'
+gem "kaminari"
 gem "factory_girl_rails"
   # shoulda
 gem 'shoulda-matchers'
