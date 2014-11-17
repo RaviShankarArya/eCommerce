@@ -100,6 +100,7 @@ def get_collections
 
     @product_categories = relation.order("created_at desc").page(@current_page).per(@per_page)
 
+
     ## Initializing the @health_tip object so that we can render the show partial
     @product_category = @product_categories.first unless @product_category
 

@@ -1,7 +1,7 @@
 class BaseController < ApplicationController
 
   # before_filter :require_admin
-  #layout 'admin'
+  layout 'admin'
 
   protected
 

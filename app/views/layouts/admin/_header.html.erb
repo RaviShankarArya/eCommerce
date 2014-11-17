@@ -2,19 +2,7 @@
   <!-- <h3 class="text-muted pull-left">DocDock</h3> -->
   <img src="/assets/docdock-logo.png">
   <ul class="nav nav-pills pull-right">
-    <% if @current_admin %>
-
-      <li class="dropdown">
-        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><%= @current_admin.name %> <b class="caret"></b></a>
-        <ul class="dropdown-menu">
-          <li><%= link_to raw("Sign Out"), admin_sign_out_path, method: :delete %></li>
-        </ul>
-      </li>
-    <% else %>
-      <li class="<%= nav_class("Manage Trusts") %>">
-        <%= link_to raw("Sign In"), admin_sign_in_path %>
-      </li>
-    <% end %>
+   
 
   </ul>
   <div class="cl-10"></div>
