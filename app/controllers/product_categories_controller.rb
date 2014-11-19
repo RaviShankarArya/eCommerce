@@ -38,7 +38,7 @@ class ProductCategoriesController < BaseController
 
   def create
     ## Creating the health_tip object
-    @product_category = ProductCategory.new(product_category)
+    @product_category = ProductCategory.new(category_params)
     ## Validating the data
     create_method(@product_category, "Product Category", "product_category_url")
   end
@@ -48,7 +48,7 @@ class ProductCategoriesController < BaseController
     ## Fetching the health_tip
     @product_category = ProductCategory.find(params[:id])
     ## Updating the @health_tip object with params
-    @product_category.assign_attributes(product_category)
+    @product_category.assign_attributes(category_params)
 
     ## Validating the data
     update_method(@product_category, "Product Category", "product_category_url")
@@ -103,7 +103,6 @@ def get_collections
 
     ## Initializing the @health_tip object so that we can render the show partial
     @product_category = @product_categories.first unless @product_category
-
     return true
 
   end
