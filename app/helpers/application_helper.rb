@@ -70,6 +70,7 @@ module ApplicationHelper
       format.html { get_collections and render :index }
       format.json { render json: object }
       format.js {}
+
     end
   end
 
