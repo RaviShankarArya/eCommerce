@@ -31,7 +31,6 @@ class ProductCategoriesController < BaseController
   def edit
     ## Fetching the health_tip object
     @product_category = ProductCategory.find(params[:id])
-
     respond(@product_category)
   end
 
