@@ -60,6 +60,10 @@ module ConfigCenter
     PRODUCT_MIN_LEN = 6
     PRODUCT_MAX_LEN = 128
     PRODUCT_FORMAT_REG_EXP = /\A[a-zA-Z0-9\-]*\z/
+
+    PRODUCT_TYPE_MIN_LEN = 6
+    PRODUCT_TYPE_MAX_LEN = 128
+    PRODUCT_TYPE_FORMAT_REG_EXP = /\A[a-zA-Z0-9\-]*\z/
   end
 
     module Defaults

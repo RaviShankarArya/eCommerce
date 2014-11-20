@@ -1,11 +1,11 @@
 require 'rails_helper'
 
 RSpec.describe ProductCategory, :type => :model do
-  let(:product_category) {FactoryGirl.build(:product_category)}
+  let(:product_category) {FactoryGirl.create(:product_category)}
 
   context "Factory settings for product_category" do
     it "should validate the product_category factories" do
-      expect(FactoryGirl.build(:product_category).valid?).to be true
+      expect(FactoryGirl.create(:product_category).valid?).to be true
     end
   end
 

@@ -30,6 +30,7 @@ gem 'pg'
 gem 'pry-rails'
 gem "kaminari"
 gem "factory_girl_rails"
+gem 'faker', '~> 1.4.3'
   # shoulda
 gem 'shoulda-matchers'
 group :test do
