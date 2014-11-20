@@ -2,7 +2,7 @@
 
 FactoryGirl.define do
   factory :product_type do
-    product_type_name "MyString"
-    product_category nil
+    product_type_name "Shirt"
+    # product_category {Faker::Number.digit}
   end
 end
