@@ -9,6 +9,7 @@ Rails.application.routes.draw do
     namespace :v1 do
       #get 'info/server' => 'info#server'
       get  'product_categories' => 'product_categories#index'
+      get  'product_types' => 'product_types#index'
     end
   end
 
