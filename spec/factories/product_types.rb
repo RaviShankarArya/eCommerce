@@ -3,6 +3,6 @@
 FactoryGirl.define do
   factory :product_type do
     product_type_name "Shirt"
-    # product_category {Faker::Number.digit}
+    product_category
   end
 end
