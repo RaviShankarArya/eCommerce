@@ -1,0 +1,12 @@
+<div class="btn-group mt-10 mb-10" style="width:100%;">
+  <button type="button" class="btn btn-default btn-block dropdown-toggle" data-toggle="dropdown">
+    Choose a Product Type <span class="caret"></span>
+  </button>
+  <ul class="dropdown-menu" role="menu">
+    <% @product_types.each do |product_type| %>
+      <li><%= link_to product_type.product_type_name, product_type_path(product_type), :remote=>true %></li>
+    <% end %>
+    <%= content_tag :li, link_to_next_page(@product_types, 'Next Page', :remote => true) %>
+    <%= content_tag :li, link_to_previous_page(@product_types, 'Previous Page', :remote => true) %>
+  </ul>
+</div>

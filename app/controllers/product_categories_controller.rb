@@ -1,6 +1,6 @@
 class ProductCategoriesController < BaseController
   # before_filter :require_admin
-  # skip_before_filter  :verify_authenticity_token
+   skip_before_filter  :verify_authenticity_token
 
   before_filter :set_navs, :parse_pagination_params, :only=>:index
 
