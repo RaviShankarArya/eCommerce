@@ -1,0 +1,97 @@
+<%
+  unless defined?(required)
+    required = false
+  end
+  unless defined?(place_holder)
+    place_holder = ""
+  end
+  inp_id = "inp_#{display_name.underscore.split(" ").join("_")}"
+  error_class = object.errors[field_name.to_s].any? ? "has-error" : ""
+%>
+
+<div class="form-group <%= error_class %>">
+
+  <% if ["text", "email", "search", "password", "date", "time", "tel", "url", "month", "file", "image", ""].include?(input_type) %>
+
+    <label for="inp_<%= display_name.underscore.split(" ").join("_") %>" class="col-md-4 control-label">
+      <%= display_name %>
+      <span class="text-color-red ml-10 mr--5 pull-right"><%= required ? "*" : raw("&nbsp;&nbsp;") %></span>
+    </label>
+    <div class="col-md-8">
+      <input name="<%= object_name %>[<%= field_name %>]" id="inp_<%= display_name.underscore.split(" ").join("_") %>" class="text input form-control" type="<%= input_type %>" placeholder="<%= place_holder %>" value="<%= object.send(field_name.to_s) %>" />
+      <% if object.errors[field_name.to_s].any? %>
+        <span for="inp_<%= display_name.underscore.split(" ").join("_") %>" class="help-block"><%= object.errors[field_name.to_s].first %></span>
+      <% end %>
+    </div>
+
+  <% elsif input_type == "checkbox" %>
+
+    <label for="inp_<%= display_name.underscore.split(" ").join("_") %>" class="col-md-4 control-label">
+      <%= display_name %>
+      <span class="text-color-red ml-10 mr--5 pull-right"><%= required ? "*" : raw("&nbsp;&nbsp;") %></span>
+    </label>
+    <div class="col-md-8">
+      <input name="<%= object_name %>[<%= field_name %>]" id="inp_<%= display_name.underscore.split(" ").join("_") %>" type="<%= input_type %>" class="checkbox input form-control" <%= object.send(field_name.to_s) ? "checked='checked'" : "" %> />
+      <% if object.errors[field_name.to_s].any? %>
+        <span for="inp_<%= display_name.underscore.split(" ").join("_") %>" class="help-block"><%= object.errors[field_name.to_s].first %></span>
+      <% end %>
+    </div>
+
+  <% elsif input_type == "textarea" %>
+
+    <label for="inp_<%= display_name.underscore.split(" ").join("_") %>" class="col-md-4 control-label">
+      <%= display_name %>
+      <span class="text-color-red ml-10 mr--5 pull-right"><%= required ? "*" : raw("&nbsp;&nbsp;") %></span>
+    </label>
+    <div class="col-md-8">
+      <textarea maxlength="128" name="<%= object_name %>[<%= field_name %>]" style="height:100px;" class="textarea input form-control" id="inp_<%= display_name.underscore.split(" ").join("_") %>"><%= object.send(field_name.to_s) %></textarea>
+      <% if object.errors[field_name.to_s].any? %>
+        <span for="inp_<%= display_name.underscore.split(" ").join("_") %>" class="help-block"><%= object.errors[field_name.to_s].first %></span>
+      <% end %>
+    </div>
+
+    <% elsif input_type == "select" %>
+
+    <label for="inp_<%= display_name.underscore.split(" ").join("_") %>" class="col-md-4 control-label">
+      <%= display_name %>
+      <span class="text-color-red ml-10 mr--5 pull-right"><%= required ? "*" : raw("&nbsp;&nbsp;") %></span>
+    </label>
+    <div class="col-md-8">
+    <%= select_tag "product_type[#{field_name}]", options_for_select(ProductCategory.all.map { |item| [item.product_name, item.id] }, :selected => object.product_category_id), :class => "img input form-control",:id => "inp_#{display_name.underscore.split(' ').join('_')}"%>
+      <% if object.errors[field_name.to_s].any? %>
+        <span for="inp_<%= display_name.underscore.split(" ").join("_") %>" class="help-block"><%= object.errors[field_name.to_s].first %></span>
+      <% end %>
+    </div>
+
+    <% elsif input_type == "selectexpire" %>
+
+    <label for="inp_<%= display_name.underscore.split(" ").join("_") %>" class="col-md-4 control-label">
+      <%= display_name %>
+      <span class="text-color-red ml-10 mr--5 pull-right"><%= required ? "*" : raw("&nbsp;&nbsp;") %></span>
+    </label>
+    <div class="col-md-8">
+      <%= select_tag "health_tip[#{field_name}]", options_for_select([['7 days', '7'], ['30 days', '30'], ['90 days', '90'], ['Never', '999999']], :selected => object.expiration), :class => "img input form-control",
+                     :id => "inp_#{display_name.underscore.split(' ').join('_')}" %>
+
+      <% if object.errors[field_name.to_s].any? %>
+        <span for="inp_<%= display_name.underscore.split(" ").join("_") %>" class="help-block"><%= object.errors[field_name.to_s].first %></span>
+      <% end %>
+    </div>
+
+
+  <% elsif input_type == "file" %>
+
+    <label for="inp_<%= display_name.underscore.split(" ").join("_") %>" class="col-md-4 control-label">
+      <%= display_name %>
+      <span class="text-color-red ml-10 mr--5 pull-right"><%= required ? "*" : raw("&nbsp;&nbsp;") %></span>
+    </label>
+    <div class="col-md-8">
+      <file name="<%= object_name %>[<%= field_name %>]" style="height:200px;" class="img input form-control" id="inp_<%= display_name.underscore.split(" ").join("_") %>"><%= object.send(field_name.to_s) %></file>
+      <% if object.errors[field_name.to_s].any? %>
+        <span for="inp_<%= display_name.underscore.split(" ").join("_") %>" class="help-block"><%= object.errors[field_name.to_s].first %></span>
+      <% end %>
+    </div>
+
+  <% end %>
+
+</div>
