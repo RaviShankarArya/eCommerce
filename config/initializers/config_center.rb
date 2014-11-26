@@ -56,14 +56,21 @@ module ConfigCenter
 
     DOCTOR_NAME_FORMAT_REG_EXP = /\A([A-Za-z .])+\z/
 
-
+    # Product_category
     PRODUCT_MIN_LEN = 6
     PRODUCT_MAX_LEN = 128
     PRODUCT_FORMAT_REG_EXP = /\A[a-zA-Z0-9\-]*\z/
 
+    # Product_Types
     PRODUCT_TYPE_MIN_LEN = 6
     PRODUCT_TYPE_MAX_LEN = 128
     PRODUCT_TYPE_FORMAT_REG_EXP = /\A[a-zA-Z0-9\-]*\z/
+
+    # Product_Details
+    ITEM_CODE_FORMAT_REG_EXP = /\A[a-zA-Z0-9\-]*\z/
+    COLOR_FORMAT_REG_EXP = /\A[a-zA-Z0-9\-]*\z/
+    PRICE_FORMAT_REG_EXP = /\A\d*\.?\d*\z/
+    STOCK_FORMAT_REG_EXP = /[0-9]/
   end
 
     module Defaults
