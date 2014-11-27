@@ -2,8 +2,8 @@
 
 FactoryGirl.define do
   factory :product_detail do
-    item_code "MyString"
-    color "MyString"
+    item_code "286ea1"
+    color "286ea1"
     price 1.5
     stock 1
     product_type

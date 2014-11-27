@@ -70,7 +70,7 @@
       <span class="text-color-red ml-10 mr--5 pull-right"><%= required ? "*" : raw("&nbsp;&nbsp;") %></span>
     </label>
     <div class="col-md-8">
-    <%= select_tag "product_type[#{field_name}]", options_for_select(ProductCategory.all.map { |item| [item.product_name, item.id] }, :selected => object.product_category_id), :class => "img input form-control",:id => "inp_#{display_name.underscore.split(' ').join('_')}"%>
+    <%= select_tag "product_type[#{field_name}]", options_for_select(ProductCategory.all.map { |item| [item.product_name, item.id] }, :selected => object.product_type_id), :class => "img input form-control",:id => "inp_#{display_name.underscore.split(' ').join('_')}"%>
       <% if object.errors[field_name.to_s].any? %>
         <span for="inp_<%= display_name.underscore.split(" ").join("_") %>" class="help-block"><%= object.errors[field_name.to_s].first %></span>
       <% end %>
