@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   root 'home#index'
   resources :product_categories
   resources :product_types
+  resources :product_details
   get     'home' => "home#index",:as => :admin_home
 
 
@@ -11,6 +12,7 @@ Rails.application.routes.draw do
       #get 'info/server' => 'info#server'
       get  'product_categories' => 'product_categories#index'
       get  'product_types' => 'product_types#index'
+      get  'product_details' => 'product_details#index'
     end
   end
 

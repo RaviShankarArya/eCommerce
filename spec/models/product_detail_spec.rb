@@ -10,4 +10,14 @@ context "Factory settings for product_details" do
     end
   end
 
+  describe ProductDetail do
+    it { should validate_presence_of :item_code }
+    it { should allow_value('286ea1').for(:item_code )}
+    it { should validate_presence_of :color }
+    it { should allow_value('286ea1').for(:color )}
+    it { should validate_presence_of :price }
+    it { should validate_presence_of :stock }
+
+  end
+
 end

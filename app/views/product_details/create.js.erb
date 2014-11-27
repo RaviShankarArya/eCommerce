@@ -1,0 +1,25 @@
+<% if @product_detail.errors.blank? %>
+
+  // Fill the right box with first health tip details
+  $('#div_product_detail_details').html("<%= escape_javascript(render(:partial=>'show')) %>");
+
+  // Add the newly created item to the list
+  $("#div_product_detail_collections").prepend("<div id=\"div_product_detail_<%= @product_detail.id %>\"><%= escape_javascript(render(:partial => 'item', :locals => { :product_detail => @product_detail })) %></div>")
+  $("#div_product_detail_empty").hide();
+
+  // Close Modal
+  closeModal();
+
+<% else %>
+
+  // Show the new form in the pop up form.
+  heading = "Create Product Detail";
+  bodyContent = "<%= escape_javascript(render(:partial=>"form")) %>";
+  showModal(heading, bodyContent);
+  validatedoctorForm();
+
+  // Populate Server Side Errors
+  errorMessages = <%= @product_detail.errors.full_messages.to_json.html_safe %>;
+  populateServerSideErrors('product_detail', errorMessages);
+
+<% end %>

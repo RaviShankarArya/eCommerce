@@ -33,6 +33,16 @@
                                               :place_holder=>"e.g: Put a suitable example here."} %>
 
 
+      <%= render :partial=>"field", :locals=>{:object=>@product_type,
+                                              :object_name=>'product_type',
+                                              :field_name=>'product_type_name',
+                                              :display_name=>'Product Color',
+                                              :field_type=>'string',
+                                              :input_type=>'colorpicker',
+                                              :required=>true,
+                                              :place_holder=>"e.g: Put a suitable example here."} %>
+
+
 
     </div>
   </div>

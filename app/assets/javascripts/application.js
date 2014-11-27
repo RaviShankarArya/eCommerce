@@ -13,4 +13,6 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
+//= require colpick
+//= require colorpicker
 //= require_tree .

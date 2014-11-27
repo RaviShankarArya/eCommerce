@@ -1,0 +1,82 @@
+
+<%# Renders a partial which is used to create a new health_tip %>
+
+<%= form_for(@product_detail, :html => {:id=>"form_product_detail", :multipart => true, :class=>"mb-0 form-horizontal", :role => "form", :method => (@product_detail.new_record? ? :post : :put), :remote=>true}) do |f| %>
+
+  <div class="modal-body">
+
+    <%= @product_detail.errors[:base].to_sentence %>
+
+    <%= hidden_field_tag :faction, @product_detail.new_record? ? product_details_path : product_details_path(@product_detail) %>
+    <%= hidden_field_tag :fmethod, @product_detail.new_record? ? "POST" : "PUT" %>
+
+    <div class="form-inputs">
+
+      <!-- Title (string) -->
+      <%= render :partial=>"field", :locals=>{:object=>@product_detail,
+                                              :object_name=>'product_detail',
+                                              :field_name=>'item_code',
+                                              :display_name=>'Item Code',
+                                              :field_type=>'string',
+                                              :input_type=>'text',
+                                              :required=>true,
+                                              :place_holder=>"e.g: Put a suitable example here."} %>
+
+
+      <%= render :partial=>"field", :locals=>{:object=>@product_detail,
+                                              :object_name=>'product_detail',
+                                              :field_name=>'product_type_id',
+                                              :display_name=>'Product Category',
+                                              :field_type=>'integer',
+                                              :input_type=>'select',
+                                              :required=>true,
+                                              :place_holder=>"e.g: Put a suitable example here."} %>
+
+
+      <%= render :partial=>"field", :locals=>{:object=>@product_detail,
+                                              :object_name=>'product_detail',
+                                              :field_name=>'price',
+                                              :display_name=>'Price',
+                                              :field_type=>'float',
+                                              :input_type=>'text',
+                                              :required=>true,
+                                              :place_holder=>"e.g: Put a suitable example here."} %>
+
+
+      <%= render :partial=>"field", :locals=>{:object=>@product_detail,
+                                              :object_name=>'product_detail',
+                                              :field_name=>'stock',
+                                              :display_name=>'Stock',
+                                              :field_type=>'integer',
+                                              :input_type=>'text',
+                                              :required=>true,
+                                              :place_holder=>"e.g: Put a suitable example here."} %>
+
+
+      <%= render :partial=>"field", :locals=>{:object=>@product_detail,
+                                              :object_name=>'product_detail',
+                                              :field_name=>'color',
+                                              :display_name=>'Product Color',
+                                              :field_type=>'string',
+                                              :input_type=>'colorpicker',
+                                              :required=>true,
+                                              :place_holder=>"e.g: Put a suitable example here."} %>
+
+
+
+    </div>
+  </div>
+
+  <div class="modal-footer">
+
+    <div class="pull-right">
+      <% button_text = "#{@product_detail.new_record? ? "Create" : "Update"} Product Detail" %>
+     <%= link_to 'Cancel', product_details_path, :class => "btn btn-default" %>
+      <%= submit_tag button_text, "data-reset-text"=>button_text, "data-loading-text"=>"Saving ...", :class=>"btn btn-primary ml-10 staff_warning" %>
+    </div>
+
+  </div>
+
+  <div class="cl-10"></div>
+
+<% end %>
