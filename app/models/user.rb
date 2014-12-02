@@ -23,7 +23,6 @@ class User < ActiveRecord::Base
   validates :email, presence: true, uniqueness: {message: "Email already exists"},:format => {:with =>  ConfigCenter::GeneralValidations::EMAIL_FORMAT_REG_EXP,
                 :message => "Invalid email"}
 
-
   validates :address, :presence => true
 
   validates :password, :presence => true, :on => :create
@@ -35,19 +34,13 @@ class User < ActiveRecord::Base
                         :maximum => ConfigCenter::GeneralValidations::PASSWORD_MAX_LEN,
                         :message =>"Password must be within 8 to 128"}
 
-
   validates :password_confirmation, :presence => true, :on => :create
-
-
 
   validates :phone, :presence => true,:length => {:minimum => ConfigCenter::GeneralValidations::PHONE_MIN_LEN,
                   :maximum => ConfigCenter::GeneralValidations::PHONE_MAX_LEN,
                   :message =>"Phone Number must be 10 numbers and '-' For e.g: 990-191-6142"},
                   :format => {:with => ConfigCenter::GeneralValidations::PHONE_FORMAT_REG_EXP,
                     :message =>"Phone Number Contains Numbers and '-' For e.g: 990-191-6142"}
-
-
-
 
 
   def generate_auth_token
