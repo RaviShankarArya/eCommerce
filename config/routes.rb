@@ -13,6 +13,7 @@ Rails.application.routes.draw do
       get  'product_categories' => 'product_categories#index'
       get  'product_types' => 'product_types#index'
       get  'product_details' => 'product_details#index'
+      post 'sign_up' => 'users#create'
     end
   end
 
