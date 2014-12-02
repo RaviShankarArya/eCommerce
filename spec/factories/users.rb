@@ -2,13 +2,14 @@
 
 FactoryGirl.define do
   factory :user do
-    user_name "MyString"
-    first_name "MyString"
-    last_name "MyString"
-    password_digest "MyString"
-    email "MyString"
-    address "MyText"
-    phone "MyString"
-    auth_token "MyString"
+    user_name "RaviShankar"
+    first_name "Ravi"
+    last_name "Shankar"
+    password "Password_123@"
+    password_confirmation "Password_123@"
+    email "ABCDE@domain.com"
+    address "fdsafs sdfsdgs  232 dsgsdgdsgss arwr awrggdsgrsae afasfafa"
+    phone "990-191-6142"
+    auth_token "xxxxxaaaaxxx"
   end
 end
