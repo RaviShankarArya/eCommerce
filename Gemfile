@@ -32,6 +32,7 @@ gem "kaminari"
 gem "factory_girl_rails"
 gem 'faker', '~> 1.4.3'
 gem 'rails-api'
+gem 'bcrypt', '~> 3.1.7'
   # shoulda
 gem 'shoulda-matchers'
 group :test do
